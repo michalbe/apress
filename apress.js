@@ -32,8 +32,8 @@ var apress = (function(){
         hash = '/';
       }
       for(var i = 0, l = routes.length; i < l ; i++) {
-        var result = routes[i].regexp.exec(hash);
-        if(result !== null) {
+        var result = routes[i] && routes[i].regexp.exec(hash);
+        if(result) {
           result = result.slice(1);
           routeExist = true;
           routes[i].callback.apply(this, result);
